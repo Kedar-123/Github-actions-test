@@ -1,0 +1,23 @@
+name: Greeting Workflow
+
+on:
+  push:
+    branches:
+      - main  # Runs the workflow when code is pushed to the main branch
+  workflow_dispatch:  # Allows manual execution of the workflow
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest  # Use Ubuntu as the runner environment
+
+    steps:
+      - name: Print greeting message
+        run: echo "Hello, GitHub Actions! This is a simple workflow."
+
+      - name: Display current date
+        run: date
+
+      - name: Custom environment variable message
+        run: echo "The current environment is $ENV"
+        env:
+          ENV: Development
