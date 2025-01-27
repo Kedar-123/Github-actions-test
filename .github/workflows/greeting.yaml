@@ -1,11 +1,15 @@
 name: Greeting Workflow
 
 on:
-  push:
-    branches:
-      - main  # Runs the workflow when code is pushed to the main branch
-  workflow_dispatch:  # Allows manual execution of the workflow
-
+  # push:
+  #   branches:
+  #     - main  # Runs the workflow when code is pushed to the main branch
+  # workflow_dispatch:  # Allows manual execution of the workflow
+  pull_request:
+    types: [closed]
+    branches: 
+      - main
+     
 jobs:
   greet:
     runs-on: ubuntu-latest  # Use Ubuntu as the runner environment
